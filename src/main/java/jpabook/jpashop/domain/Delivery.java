@@ -4,6 +4,8 @@ import com.sun.org.apache.xpath.internal.operations.Or;
 
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 public class Delivery extends BaseEntity {
   @Id
@@ -14,6 +16,6 @@ public class Delivery extends BaseEntity {
   private String zipcode;
   private DeliveryStatus status;
 
-  @OneToOne(mappedBy = "delivery")
+  @OneToOne(mappedBy = "delivery", fetch = LAZY)
   private Order order;
 }
